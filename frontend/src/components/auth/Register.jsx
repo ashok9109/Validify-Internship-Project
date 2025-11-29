@@ -1,19 +1,19 @@
-import logo from '../../images/logos.svg'
-import background from '../../images/background.jpg'
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import logo from '../../images/logos.svg';
+import background from '../../images/background.jpg';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react";
 import { registerApi } from '../../apis/UserApis';
 
 const Register = () => {
 
-  const { register, handleSubmit, formState: { errors }, watch, reset } = useForm()
+  const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [serverError, setServerError] = useState("")
+  const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const passwordValue = watch("password", "")
+  const passwordValue = watch("password", "");
 
   const onSubmit = async (data) => {
     setLoading(true)
@@ -22,7 +22,7 @@ const Register = () => {
       if (res) {
         console.log("User is registered")
       } else {
-        setServerError(res?.message || "Registartion is Failed")
+        setServerError(res?.message || "Registartion is Failed");
       }
 
     } catch (error) {
@@ -65,7 +65,7 @@ const Register = () => {
                   required: "Full Name is required",
                   minLength: { value: 3, message: "At least 3 charater" }
                 })}
-                className={`w-full border rounded-lg p-2 pl-2  focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.fullName ? "border-red-500" : "border-black"}`}
+                className={`w-full border rounded-lg p-2 pl-2  focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.fullName ? "border-[#07988E]" : "border-black"}`}
                 type="text" placeholder='Ashok Yadav' />
             </div>
             {errors.fullName && (
@@ -81,7 +81,7 @@ const Register = () => {
                   required: "User Name is required",
                   minLength: { value: 3, message: "At least 3 charater" }
                 })}
-                className={`w-full border rounded-lg p-2 pl-2 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.username ? "text-red-500" : "text-black"}`}
+                className={`w-full border rounded-lg p-2 pl-2 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.username ? "border-[#07988E]" : "border-black"}`}
                 type="text" placeholder='ashokyadav' />
             </div>
             {errors.username && (
@@ -101,7 +101,7 @@ const Register = () => {
                       required: "Email is required",
                       pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" }
                     })}
-                    className={`w-full border rounded-lg p-2 pl-2 px-1 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.email ? "border-red-500" : "border-black"}`}
+                    className={`w-full border rounded-lg p-2 pl-2 px-1 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.email ? "border-[#07988E]" : "border-black"}`}
                     type="email" placeholder='ashokyadavrtp200@gmail.com' />
                 </div>
                 {errors.email && (
@@ -119,7 +119,7 @@ const Register = () => {
                       required: "Mobile number is required",
                       pattern: { value: /^[0-9]{10}$/, message: "10 digits is required" }
                     })}
-                    className={`w-full border rounded-lg p-2 pl-2 px-1 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.mobile ? "border-red-500" : "border-black"}`}
+                    className={`w-full border rounded-lg p-2 pl-2 px-1 focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.mobile ? "border-[#07988E]" : "border-black"}`}
                     type="tel" placeholder='2334234354' />
                 </div>
                 {errors.mobile && (
@@ -138,7 +138,7 @@ const Register = () => {
                   required: "Password is required",
                   minLength: { value: 8, message: "At least 8 charaters" }
                 })}
-                className={`w-full border rounded-lg p-2 pl-2  focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.password ? "border-red-500" : "border-black"}`}
+                className={`w-full border rounded-lg p-2 pl-2  focus:outline-none focus:ring-4 focus:ring-[#07988E] ${errors.password ? "border-[#07988E]" : "border-black"}`}
                 placeholder='Enter a strong password' />
               <button
                 type='button'
