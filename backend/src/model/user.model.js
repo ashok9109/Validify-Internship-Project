@@ -5,16 +5,21 @@ const userSchema = new monogoose.Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },
     mobile: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
         minlength: 10,
         maxlenght: 10
     },
     email: {
         type: String,
-        unique:true,
+        unique: true,
         required: true
     },
     password: {
@@ -23,7 +28,7 @@ const userSchema = new monogoose.Schema({
     },
     role: {
         type: String,
-        default:"user",
+        default: "user",
         enum: ["user", "admin"]
     }
 },

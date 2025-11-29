@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 //-------Resgister Controller-----------
 const registerController = async (req, res) => {
     try {
-        const { fullName, mobile, email, password } = req.body;
+        const { fullName, mobile, email, password, username } = req.body;
 
         if (!fullName || !mobile || !email || !password) {
             res.status(422).json({
@@ -27,6 +27,7 @@ const registerController = async (req, res) => {
 
         const newUser = await userModel.create({
             fullName,
+            username,
             mobile,
             email,
             password: hash
