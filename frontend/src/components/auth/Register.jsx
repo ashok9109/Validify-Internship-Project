@@ -3,9 +3,11 @@ import background from '../../images/background.jpg';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react";
-import { registerApi } from '../../apis/UserApis';
+import { useDispatch } from 'react-redux';
+import { userRegisterApi } from '../../features/actions/authActions';
+import { toast } from 'react-toastify';
 
-const Register = () => {
+const Register = ({ setToggle }) => {
 
   const { register, handleSubmit, formState: { errors }, watch, reset } = useForm();
 
@@ -13,16 +15,18 @@ const Register = () => {
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch();
   const passwordValue = watch("password", "");
 
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const res = await registerApi(data);
-      if (res) {
-        console.log("User is registered")
+      const response = dispatch(userRegisterApi(data));
+      if (response) {
+        console.log("User is registered");
+        toast.success("Registered Successfully");
       } else {
-        setServerError(res?.message || "Registartion is Failed");
+        setServerError(response?.message || "Registartion is Failed");
       }
 
     } catch (error) {
@@ -44,10 +48,11 @@ const Register = () => {
           <p className=' text-sm text-gray-500 mb-6 '>
             Already have an account?{" "}
             <button
+              onClick={() => setToggle((prev) => !prev)}
               type='button'
               className='text-blue-400 font-semibold underline'
             >
-              sign in
+              Login
             </button>
           </p>
 

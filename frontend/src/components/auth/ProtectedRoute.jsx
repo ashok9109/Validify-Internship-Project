@@ -1,11 +1,25 @@
-import React from 'react'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet, useNavigate } from 'react-router';
 
 const ProtectedRoute = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+
+  const { user } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  console.log("this is protected route user", user)
+
+  useEffect(()=>{
+    if(user){
+      navigate("/home")
+    }else{
+      navigate("/")
+    }
+  },[user, dispatch]);
+
+  return Outlet
 }
 
 export default ProtectedRoute;

@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import Login from '../components/auth/Login';
+import Register from '../components/auth/Register';
 
 const AuthLayout = () => {
+
+  const navigate = useNavigate();
+
+  const { user, isLoggedin } = useSelector((state) => state.auth);
+
+  console.log("this is a auth user ", user);
+
+  useEffect(() => {
+    if (user !== null && isLoggedin) {
+      navigate("/home")
+    }
+  }, [user, isLoggedin]);
+
+  const [toggle, setToggle] = useState(true);
+
   return (
-    <div>
-      auth layout
-      
-    </div>
+    <>
+      <div>
+        {toggle ? (
+          <Login setToggle={setToggle} />
+        ) : (
+          <Register setToggle={setToggle} />
+        )}
+      </div>
+    </>
   )
 }
 
