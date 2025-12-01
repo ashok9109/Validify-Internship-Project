@@ -9,17 +9,15 @@ const ProtectedRoute = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log("this is protected route user", user)
-
-  useEffect(()=>{
-    if(user){
+  useEffect(() => {
+    if (user) {
       navigate("/home")
-    }else{
+    } else {
       navigate("/")
     }
-  },[user, dispatch]);
+  }, [user, dispatch]);
 
-  return Outlet
+  return <Outlet/>
 }
 
 export default ProtectedRoute;

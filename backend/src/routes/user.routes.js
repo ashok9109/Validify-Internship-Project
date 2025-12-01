@@ -4,6 +4,15 @@ const authMiddleware = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
+
+// ----------/me-api----------
+router.get("/me", authMiddleware, (req, res) => {
+    return res.status(200).json({
+        message: "user is loggedin",
+        user: req.user,
+    })
+})
+
 // -----------Resgister-api--------------
 router.post("/register", registerController);
 
@@ -11,7 +20,7 @@ router.post("/register", registerController);
 router.post("/login", loginController);
 
 // -----------logout-api----------
-router.get("/logout",authMiddleware, logoutController);
+router.get("/logout", authMiddleware, logoutController);
 
 
 

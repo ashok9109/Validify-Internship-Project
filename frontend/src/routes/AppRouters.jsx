@@ -9,32 +9,32 @@ const AppRouters = () => {
 
     const router = createBrowserRouter([
         {
-            path:"/",
-            element:<AuthLayout/>
+            path: "/",
+            element: <AuthLayout />
         },
         {
-            path:"/home",
-            element:<ProtectedRoute/>,
-            children:[
+            path: "/home",
+            element: <ProtectedRoute />,
+            children: [
                 {
-                    path:"",
-                    element:<HomeLayout/>,
-                    children:[
+                    path: "",
+                    element: <HomeLayout />,
+                    children: [
                         {
-                            path:"",
-                            element:<HomaPage/>
+                            path: "",
+                            element: <HomaPage />
                         },
                         {
-                            Path:"settings",
-                            element:<Settingspage/>
+                            Path: "settings",
+                            element: <Settingspage />
                         }
                     ]
                 }
             ]
         }
-    ])
+    ]);
 
-  return <RouterProvider router={router} />
+    return <RouterProvider router={router} />
 }
 
 export default AppRouters;

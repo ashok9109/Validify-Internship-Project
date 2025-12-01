@@ -11,10 +11,9 @@ const authSlice = createSlice({
         addUser: (state, action) => {
             state.user = action.payload,
             state.isLoggedin = true
-            console.log("this the user of authslice", state.user)
         },
-        removeUser: () => {
-            state.user = action.payload
+        removeUser: (state) => {
+            state.user = null
         }
     }
 });

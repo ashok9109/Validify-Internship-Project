@@ -10,8 +10,6 @@ const AuthLayout = () => {
 
   const { user, isLoggedin } = useSelector((state) => state.auth);
 
-  console.log("this is a auth user ", user);
-
   useEffect(() => {
     if (user !== null && isLoggedin) {
       navigate("/home")
