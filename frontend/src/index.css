@@ -1,2 +1,12 @@
 
 @import "tailwindcss";
+
+
+@font-face {
+    font-family:font1 ;
+    src: url("../public/fonts/Quantico-Bold.ttf");
+}
+
+.font1{
+    font-family: font1;
+}

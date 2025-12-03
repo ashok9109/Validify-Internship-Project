@@ -2,7 +2,7 @@ import React from 'react'
 
 const HomaPage = () => {
   return (
-    <div>
+    <div className= 'h-screen w-full bg-gray-200' >
       <h2>this is home</h2>
     </div>
   )

@@ -79,14 +79,6 @@
 // }
 
 
-import React from 'react'
 
-const Settingspage = () => {
-  return (
-    <div>
-      <h1>this is settings</h1>
-    </div>
-  )
-}
 
-export default Settingspage
+

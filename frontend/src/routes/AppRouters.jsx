@@ -3,7 +3,10 @@ import AuthLayout from '../layouts/AuthLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
 import HomeLayout from '../layouts/HomeLayout';
 import HomaPage from '../pages/HomaPage';
-import Settingspage from '../pages/Settingspage';
+import SettingPage from '../pages/SettingPage';
+import UploadCertificatePage from '../pages/UploadCertificatePage';
+import DocumentsPage from '../pages/DocumentsPage';
+import MyVerificationsPage from '../pages/MyVerificationsPage';
 
 const AppRouters = () => {
 
@@ -25,9 +28,21 @@ const AppRouters = () => {
                             element: <HomaPage />
                         },
                         {
-                            Path: "settings",
-                            element: <Settingspage />
-                        }
+                            path:"my-Verifications",
+                            element:<MyVerificationsPage/>
+                        },
+                        {
+                            path:"upload-certificate",
+                            element:<UploadCertificatePage/>
+                        },
+                        {
+                            path:"document",
+                            element:<DocumentsPage/>
+                        },
+                      {
+                        path:"settings",
+                        element:<SettingPage/>
+                      }
                     ]
                 }
             ]
