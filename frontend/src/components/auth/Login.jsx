@@ -1,5 +1,5 @@
 import logo from '../../images/logos.svg';
-import background from '../../images/background.jpg';
+import background from '../../images/bg.jpg';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react";
@@ -42,15 +42,23 @@ const Login = ({ setToggle }) => {
   return (
     <>
       <section className='min-h-screen w-full relative flex items-center justify-center bg-gray-50 '>
-        <img className='h-full w-full object-cover absolute inset-0' src={background} alt="background image" />
-        <div className='rounded-lg relative shadow-6xl shadow-black z-10 bg-gradient-to-br from-[#181A19] to-[#104B4A] rounded-lg p-5 mb-20' >
+
+        {/* background image */}
+        <img className='h-screen w-screen object-cover absolute inset-0' src={background} alt="background image" />
+
+        {/* logo */}
+        <div className='absolute top-0 md:flex hidden z-10 '>
+          <img className='h-[80px] backdrop-blur-xl ' src={logo} alt="Validify-Logo" />
+        </div>
+
+        <div className='rounded-lg relative shadow-6xl shadow-black z-10 backdrop-blur-3xl border border-slate-500 rounded-lg p-5 mb-20' >
           <h3 className='text-2xl font-bold md-1 text-black' >Create an account</h3>
           <p className=' text-sm text-gray-500 mb-6 '>
             Already have an account?{" "}
             <button
               onClick={() => setToggle((perv) => !perv)}
               type='button'
-              className='text-blue-400 font-semibold underline'
+              className='text-gary-600 font-semibold underline hover:scale-[1.1] transition'
             >
               Register
             </button>
@@ -93,7 +101,7 @@ const Login = ({ setToggle }) => {
                 onClick={() => setShowPassword((s) => !s)}
                 aria-label={showPassword ? "Hide Password" : "Show password"}
               >
-                {showPassword ? <EyeOff className='h-5 w-5' /> : <Eye className='h-5 w-5' />}
+                {showPassword ? <EyeOff className='h-5 w-5' /> : <Eye className='h-5 w-5 hover:scale-[1.3] transition' />}
               </button>
             </div>
             <p className='text-sm' >Password Value : {passwordValue.length}/8 </p>
@@ -109,15 +117,10 @@ const Login = ({ setToggle }) => {
               <button className='px-5 py-2 bg-[#098B85] rounded-lg font-bold hover:scale-[1.1] hover:bg-black hover:text-white transition' >{loading ? "Loading..." : "Login"}</button>
             </div>
             <div className="text-xs text-gray-500 mt-1">
-              By creating an account you agree to the <span className="underline text-blue-500 ">Terms</span> and{" "}
-              <span className="underline text-blue-500">Privacy Policy</span>.
+              By creating an account you agree to the <span className="underline text-gray-600 ">Terms</span> and{" "}
+              <span className="underline text-gary-600">Privacy Policy</span>.
             </div>
           </form>
-
-          {/* logo */}
-        </div>
-        <div className='absolute bottom-0 md:flex hidden z-10 '>
-          <img className='h-[80px]' src={logo} alt="Validify-Logo" />
         </div>
       </section>
     </>

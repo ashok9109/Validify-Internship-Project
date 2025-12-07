@@ -2,6 +2,7 @@ const express = require("express");
 const userRouter = require("./routes/user.routes");
 const cookieparser = require("cookie-parser");
 const cors = require("cors");
+const adminRouter = require("./routes/admin.routes");
 
 
 const app = express();
@@ -17,5 +18,8 @@ app.use(express.json());
 
 //--------user api-----------
 app.use("/api/user", userRouter);
+
+// --------admin api--------
+app.use("/api/admin", adminRouter);
 
 module.exports = app;

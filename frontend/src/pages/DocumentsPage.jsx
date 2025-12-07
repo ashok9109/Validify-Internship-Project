@@ -67,6 +67,8 @@ const DocumentPage = () => {
   };
 
   return (
+
+    <>
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
       <section className="bg-gradient-to-r from-white to-teal-50">
@@ -247,6 +249,8 @@ const DocumentPage = () => {
         </div>
       </footer>
     </main>
+    
+    </>
   );
 };
 
