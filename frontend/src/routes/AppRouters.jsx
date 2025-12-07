@@ -2,11 +2,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import AuthLayout from '../layouts/AuthLayout';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
 import HomeLayout from '../layouts/HomeLayout';
-import HomaPage from '../pages/HomaPage';
+import HomePage from '../pages/HomePage';
 import SettingPage from '../pages/SettingPage';
 import UploadCertificatePage from '../pages/UploadCertificatePage';
 import DocumentsPage from '../pages/DocumentsPage';
 import MyVerificationsPage from '../pages/MyVerificationsPage';
+import UploadDataPage from '../pages/UploadDataPage';
 
 const AppRouters = () => {
 
@@ -25,24 +26,28 @@ const AppRouters = () => {
                     children: [
                         {
                             path: "",
-                            element: <HomaPage />
+                            element: <HomePage/>
                         },
                         {
-                            path:"my-Verifications",
-                            element:<MyVerificationsPage/>
+                            path: "my-Verifications",
+                            element: <MyVerificationsPage />
                         },
                         {
-                            path:"upload-certificate",
-                            element:<UploadCertificatePage/>
+                            path: "upload-data",
+                            element: <UploadDataPage />
                         },
                         {
-                            path:"document",
-                            element:<DocumentsPage/>
+                            path: "upload-certificate",
+                            element: <UploadCertificatePage />
                         },
-                      {
-                        path:"settings",
-                        element:<SettingPage/>
-                      }
+                        {
+                            path: "document",
+                            element: <DocumentsPage />
+                        },
+                        {
+                            path: "settings",
+                            element: <SettingPage />
+                        }
                     ]
                 }
             ]

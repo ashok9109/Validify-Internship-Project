@@ -5,14 +5,14 @@ import { Outlet } from 'react-router';
 const HomeLayout = () => {
   return (
     <>
-      <div className='h-screen flex'>
+      <div className=' flex bg-slate-950'>
         {/* Nav link */}
-        <aside className='h-screen w-[20%] ' >
+        <aside className=' w-[20%] ' >
           <NavLink />
         </aside>
 
         {/* page content */}
-        <div className='h-screen w-[80%] ' >
+        <div className=' w-[80%] ' >
           <Outlet />
         </div>
       </div>
