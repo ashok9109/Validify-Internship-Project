@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { UploadExcelApi } from '../apis/adminApis';
+import { UploadExcelApi, uploadStudentCertificateApi } from '../apis/adminApis';
 import { toast } from 'react-toastify';
 
 
@@ -55,6 +55,10 @@ const UploadDataPage = () => {
       const formData = new FormData();
       formData.append("file", certificateFile);
       formData.append("certificateId", certificateId);
+      const response = await uploadStudentCertificateApi(formData);
+      if(response){
+        toast.success("Certificate uploaded successfully");
+      }
 
     } catch (error) {
       console.log(error);

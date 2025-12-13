@@ -8,7 +8,7 @@ const storageInstance = new imageKit({
 
 });
 
-const sendFile = async (file, fileName) => {
+const imageKitSendFile = async ({file, fileName}) => {
     try {
 
         const response = await storageInstance.upload({
@@ -23,4 +23,4 @@ const sendFile = async (file, fileName) => {
     };
 };
 
-module.exports = sendFile;
+module.exports = imageKitSendFile;
