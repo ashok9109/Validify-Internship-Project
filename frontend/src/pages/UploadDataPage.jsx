@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { UploadExcelApi } from '../apis/adminApis';
+import { toast } from 'react-toastify';
+
 
 const UploadDataPage = () => {
 
@@ -20,6 +23,10 @@ const UploadDataPage = () => {
 
       const formData = new FormData();
       formData.append("file", excelFile);
+      const response = await UploadExcelApi(formData);
+      if (response) {
+        toast.success("Excel Data Uploaded successfully");
+      }
 
     } catch (error) {
       console.log(error)
@@ -118,7 +125,7 @@ const UploadDataPage = () => {
                 </label>
 
                 <button
-                  type='button'
+                  type='submit'
                   disabled={isUploadinExcel}
                   className='w-full inline-flex items-center justify-center bg-emerald-500 px-4 py-2.5 rounded-lg hover:emerald-300 font-semibold txet-sm text-slate-950 shadow-lg shadow-emerald-500/30'
                 >
@@ -149,7 +156,7 @@ const UploadDataPage = () => {
                     type="text"
                     value={certificateId}
                     onChange={(e) => setCertificateId(e.target.value)}
-                    placeholder="e.g. CERT-2024-0001"
+                    placeholder="e.g. CERT-001-2025"
                     className='w-full px-2 py-3 rounded-lg border border-slate-600 text-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500'
                   />
                   <p className="text-[11px] text-slate-400 mt-1">
@@ -186,7 +193,7 @@ const UploadDataPage = () => {
                 </div>
 
                 <button
-                  type='button'
+                  type='submit'
                   disabled={isUploadinCertificate}
                   className='w-full inline-flex items-center justify-center bg-emerald-500 px-4 py-2.5 rounded-lg hover:emerald-300 font-semibold txet-sm text-slate-950 shadow-lg shadow-emerald-500/30'
                 >

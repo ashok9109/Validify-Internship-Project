@@ -73,7 +73,7 @@ const UploadCertificatePage = () => {
                 type="text"
                 value={certificateId}
                 onChange={(e) => setCertificateId(e.target.value)}
-                placeholder="e.g. CERT-2024-0001"
+                placeholder="e.g. CERT-001-2025 "
                 className="w-full px-3 py-2 rounded-lg border border-slate-600 bg-slate-900/80 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               />
               <p className="text-[11px] text-slate-400 mt-1">

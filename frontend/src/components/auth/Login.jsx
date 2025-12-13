@@ -1,5 +1,5 @@
 import logo from '../../images/logos.svg';
-import background from '../../images/bg.jpg';
+import background from '../../images/bg-min.jpg';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Eye, EyeOff } from "lucide-react";
