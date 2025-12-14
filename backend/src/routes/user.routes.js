@@ -1,5 +1,5 @@
 const express = require("express");
-const { registerController, loginController, logoutController } = require("../controllers/user.controller");
+const { registerController, loginController, logoutController, changePasswordController } = require("../controllers/user.controller");
 const authMiddleware = require("../middleware/auth.middleware");
 
 const router = express.Router();
@@ -21,6 +21,9 @@ router.post("/login", loginController);
 
 // -----------logout-api----------
 router.get("/logout", authMiddleware, logoutController);
+
+// ---------change password api-------
+router.post("/change-password", authMiddleware, changePasswordController);
 
 
 

@@ -12,7 +12,7 @@ export const userRegisterApi = (data) => async (dispatch) => {
             return response.data
         }
     } catch (error) {
-       throw error.response?.data || error
+        throw error.response?.data || error
     };
 };
 
@@ -42,3 +42,15 @@ export const userLogoutApi = () => async (dispatch) => {
         throw error.response?.data || error;
     };
 };
+
+export const changePasswordApi = (data) => async (dispatch) => {
+    try {
+        const response = await axiosinstance.post("/api/user/change-password", data);
+        if(response){
+            return response.data;
+        }
+
+    } catch (error) {
+        throw error.response?.data || error;
+    }
+}

@@ -3,6 +3,7 @@ import logo from '../../images/logo-image.png';
 import { NavLink as RouterNavLink, useLocation, useNavigate, } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogoutApi } from "../../features/actions/authActions";
+import { Bounce, toast } from "react-toastify";
 
 const navLink = [
     { label: "Home", icon: Home, to: "/home" },
@@ -31,6 +32,10 @@ const NavLink = () => {
         try {
             dispatch(userLogoutApi());
             navigate("/")
+            toast.success("Logout successfully",{
+                theme:"dark",
+                transition:Bounce
+            })
         } catch (error) {
             console.log("error in the logout ", error);
         };

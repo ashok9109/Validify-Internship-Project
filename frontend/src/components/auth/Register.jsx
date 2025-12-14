@@ -24,7 +24,9 @@ const Register = ({ setToggle }) => {
       const response = await dispatch(userRegisterApi(data));
       if (response) {
         console.log("User is registered");
-        toast.success("Registered Successfully");
+        toast.success("Registered Successfully",{
+          theme:"dark"
+        });
       } else {
         setServerError(response?.message || "Registartion is Failed");
       }

@@ -63,9 +63,9 @@ const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        if(!email || !password){
+        if (!email || !password) {
             return res.status(422).json({
-                message:"All fields is required"
+                message: "All fields is required"
             })
         }
 
@@ -114,7 +114,7 @@ const loginController = async (req, res) => {
 // ---------Logout-Controller--------
 const logoutController = async (req, res) => {
     try {
-          const token = req.cookies?.token
+        const token = req.cookies?.token
 
         if (!token) {
             return res.status(404).json({
@@ -137,4 +137,55 @@ const logoutController = async (req, res) => {
     };
 };
 
-module.exports = { registerController, loginController, logoutController };
+// ----Change password api-----
+const changePasswordController = async (req, res) => {
+    try {
+
+        const userId = req.user._id;
+
+        const { currentPassword, newPassword } = req.body;
+
+        if (!currentPassword || !newPassword) {
+            return res.status(400).json({
+                message: "All fields are required"
+            })
+        }
+
+        const user = await userModel.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "user is not found"
+            })
+        }
+
+        const isMatch = await bcrypt.compare(currentPassword, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({
+                message: "Current password is incorrect"
+            })
+        }
+
+        const hash = await bcrypt.hash(newPassword, 10);
+
+        user.password = hash;
+
+        await user.save();
+
+        return res.status(200).json({
+            message: "password is changed successfully",
+            success: true
+        })
+
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "Internal server error",
+            error: error
+        })
+    }
+}
+
+module.exports = { registerController, loginController, logoutController, changePasswordController };

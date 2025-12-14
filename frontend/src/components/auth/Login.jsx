@@ -24,8 +24,9 @@ const Login = ({ setToggle }) => {
       const response = await dispatch(userLoginApi(data));
       if (response) {
         console.log("User is login");
-        console.log("this is response", response)
-        toast.success("Login Successfully")
+        toast.success("Login Successfully",{
+          theme:"dark"
+        })
       } else {
         setServerError(response?.message || "Login  is Failed")
       }
