@@ -7,8 +7,8 @@ const HomePage = () => {
                 <section className='max-w-8xl w-full grid lg:grid-cols-2 text-center px-6 py-7 lg:py-24 gap-10' >
 
                     {/* left div */}
-                    <div>
-                        <h1 className='text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold' >
+                    <div >
+                        <h1 className='text-white text-3xl sm:text-4xl lg:text-5xl  font-extrabold' >
                             <span className='text-emerald-500' >Validify</span> —  Verify Internship certificate Instantly
                         </h1>
                         <p className="mt-4 text-white text-lg">

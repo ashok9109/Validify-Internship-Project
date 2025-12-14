@@ -56,7 +56,7 @@ const UploadDataPage = () => {
       formData.append("file", certificateFile);
       formData.append("certificateId", certificateId);
       const response = await uploadStudentCertificateApi(formData);
-      if(response){
+      if (response) {
         toast.success("Certificate uploaded successfully");
       }
 
@@ -75,7 +75,7 @@ const UploadDataPage = () => {
 
           {/* Headings */}
           <div className='text-center mb-8' >
-            <h1 className='text-3xl font-extrabold text-white tracking-tight md:text-4xl' >
+            <h1 className='text-3xl font-extrabold text-white tracking-tight md:text-4xl pt-5' >
               Certificate Data Management
             </h1>
             <p className='text-slate-300 text-sm  md:text-base ' >
@@ -84,7 +84,7 @@ const UploadDataPage = () => {
           </div>
 
           {/* Two column layout */}
-          <div className='grid gap-6 md:grid-cols-2'>
+          <div className='grid gap-6 md:grid-cols-2 p-7 sm:p-10 md:p-8  '>
 
             {/* Left div Excel upload  */}
             <div className='bg-slate-900/50 border border-emerald-500 rounded-3xl shadow-lg p-6 md:p-7 backdrop-blur space-y-7' >

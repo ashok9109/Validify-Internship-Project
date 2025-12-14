@@ -40,7 +40,7 @@ const UploadCertificatePage = () => {
   };
 
   return (
-    <section className="min-h-screen bg-slate-950 flex flex-col items-center justify-center px-4 py-10">
+    <section className="min-h-screen  bg-slate-950 flex flex-col items-center justify-center px-4 py-10 ">
       <div className="max-w-6xl w-full flex flex-col items-center justify-center">
         {/* Page Heading */}
         <div className="mb-8 text-center">
