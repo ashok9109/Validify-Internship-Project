@@ -12,7 +12,7 @@ export const userRegisterApi = (data) => async (dispatch) => {
             return response.data
         }
     } catch (error) {
-        console.log("error in register api");
+       throw error.response?.data || error
     };
 };
 
@@ -23,10 +23,10 @@ export const userLoginApi = (data) => async (dispatch) => {
 
         if (response) {
             dispatch(addUser(response.data.user));
-            // return response.data;
+            return response.data;
         }
     } catch (error) {
-        console.log("error in login api", error);
+        throw error.response?.data || error;
     };
 };
 
@@ -39,6 +39,6 @@ export const userLogoutApi = () => async (dispatch) => {
             dispatch(removeUser());
         }
     } catch (error) {
-        console.log("error in the logout", error);
+        throw error.response?.data || error;
     };
 };

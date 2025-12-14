@@ -8,7 +8,7 @@ export const UploadExcelApi = async (data) => {
             return response.data;
         }
     } catch (error) {
-        console.log("error in the upload excel api", error);
+        throw error.response?.data || error;
     };
 };
 
@@ -20,6 +20,6 @@ export const uploadStudentCertificateApi = async(data)=>{
             return response.data;
         }
     } catch (error) {
-        console.log("error in the uploadin teh certificate", error);
+        throw error.response?.data || error;
     };
 };

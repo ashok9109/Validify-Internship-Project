@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { uploadUserCertificateApi } from "../apis/userCertificateApis";
+import { toast } from "react-toastify";
 
 const UploadCertificatePage = () => {
 
@@ -21,14 +23,14 @@ const UploadCertificatePage = () => {
     try {
       setIsUploadingCert(true);
 
-      // TODO: replace with your axios instance + API route
-      // const formData = new FormData();
-      // formData.append("certificateId", certificateId);
-      // formData.append("file", certificateFile);
-      // await axiosInstance.post("/api/admin/certificates/upload", formData);
+      const formData = new FormData();
+      formData.append("certificateId", certificateId);
+      formData.append("file", certificateFile);
+      const response =   await uploadUserCertificateApi(formData);
+      if(response){
+        toast.success("Your certificate is Uploaded")
+      }
 
-      console.log("Uploading certificate with ID:", certificateId, certificateFile);
-      alert("Certificate uploaded (mock). Wire this to backend API.");
       setCertificateId("");
       setCertificateFile(null);
     } catch (err) {

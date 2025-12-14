@@ -21,9 +21,10 @@ const Login = ({ setToggle }) => {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const response = dispatch(userLoginApi(data));
+      const response = await dispatch(userLoginApi(data));
       if (response) {
         console.log("User is login");
+        console.log("this is response", response)
         toast.success("Login Successfully")
       } else {
         setServerError(response?.message || "Login  is Failed")

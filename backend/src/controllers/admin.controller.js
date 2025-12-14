@@ -88,7 +88,8 @@ const uploadStudentCertificateController = async (req, res) => {
 
         const uploadCertificate = await imageKitSendFile({
             file: req.file.buffer,
-            fileName: `certificate_${certificateId}`
+            fileName: `certificate_${certificateId}`,
+            folder: "certificates"
         });
 
         const url = uploadCertificate.url;

@@ -8,13 +8,13 @@ const storageInstance = new imageKit({
 
 });
 
-const imageKitSendFile = async ({file, fileName}) => {
+const imageKitSendFile = async ({file, fileName, folder}) => {
     try {
 
         const response = await storageInstance.upload({
             file,
             fileName,
-            folder: "certificates"
+            folder
         });
 
         return response

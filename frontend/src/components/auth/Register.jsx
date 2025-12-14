@@ -21,7 +21,7 @@ const Register = ({ setToggle }) => {
   const onSubmit = async (data) => {
     setLoading(true)
     try {
-      const response = dispatch(userRegisterApi(data));
+      const response = await dispatch(userRegisterApi(data));
       if (response) {
         console.log("User is registered");
         toast.success("Registered Successfully");

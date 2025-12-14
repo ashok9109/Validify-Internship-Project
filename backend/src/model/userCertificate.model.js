@@ -14,11 +14,6 @@ const userCertificateSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    fileType: {
-        type: String,
-        enum: ["pdf", "image"],
-        required: true
-    }
 }, { timestamps: true })
 
 const userCertificateModel = mongoose.model("User-certificate", userCertificateSchema);
