@@ -1,6 +1,6 @@
 import { axiosinstance } from "../config/axiosinstance";
 
-// upload excel api
+// ----------------upload excel api-----------
 export const UploadExcelApi = async (data) => {
     try {
         const response = await axiosinstance.post("/api/admin/upload-excel", data);
@@ -12,7 +12,7 @@ export const UploadExcelApi = async (data) => {
     };
 };
 
-// uploading student certificate api
+// -----------uploading student certificate api---------
 export const uploadStudentCertificateApi = async(data)=>{
     try {
         const response = await axiosinstance.post("/api/admin/upload/student-certificate", data);

@@ -1,7 +1,7 @@
 const userCertificateModel = require("../model/userCertificate.model");
 const imageKitSendFile = require("../services/storage.service");
 
-
+// ------upload user certificate api-------
 const userUploadCertificateController = async (req, res) => {
     try {
 
@@ -49,4 +49,35 @@ const userUploadCertificateController = async (req, res) => {
     };
 };
 
-module.exports = { userUploadCertificateController };
+// ---------user certificate api------------
+const getMYCertificateController = async (req, res) => {
+    try {
+
+        const userId = req.user._id;
+
+        const certificates = await userCertificateModel.find({ user: userId })
+            .select("certificateId certificateUrl  createdAt")
+            .sort({ createdAt: -1 });
+
+        return res.status(200).json({
+            message: "certificate fetched successfully",
+            success: true,
+            count: certificates.length,
+            certificates
+        })
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: "fail to fetch certificates",
+            success: false,
+            error: error
+        });
+    };
+};
+
+
+
+
+
+module.exports = { userUploadCertificateController, getMYCertificateController };

@@ -8,7 +8,7 @@ const router = express.Router();
 // --------upload-excel---------
 router.post("/upload-excel", upload.single("file"),   uploadExcelController);
 
-// --------upload student certificate----=
+// --------upload student certificate----
 router.post("/upload/student-certificate", upload.single("file"), uploadStudentCertificateController);
 
 

@@ -3,7 +3,7 @@ const studentModel = require("../model/student.model");
 const imageKitSendFile = require("../services/storage.service");
 
 
-// upload Excel controller
+// -----------upload Excel controller-------------
 const uploadExcelController = async (req, res) => {
     try {
         if (!req.file) {
@@ -67,7 +67,7 @@ const uploadExcelController = async (req, res) => {
 };
 
 
-// ------uplaod student controller
+// ------uplaod student controller-------------
 
 const uploadStudentCertificateController = async (req, res) => {
     try {
