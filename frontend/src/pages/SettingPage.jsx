@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { toast } from 'react-toastify';
-import { axiosinstance } from '../config/axiosinstance';
 import { useDispatch } from 'react-redux';
 import { changePasswordApi } from '../features/actions/authActions';
 
@@ -23,8 +22,8 @@ const SettingPage = () => {
     e.preventDefault();
 
     if (formData.newPassword === !formData.confirmPassword) {
-      toast.error("New password and confirm password is not matched",{
-        theme:"dark"
+      toast.error("New password and confirm password is not matched", {
+        theme: "dark"
       })
     }
 
@@ -33,8 +32,8 @@ const SettingPage = () => {
 
       const response = await dispatch(changePasswordApi(formData));
       if (response) {
-        toast.success("Password change successfully",{
-          theme:"dark"
+        toast.success("Password change successfully", {
+          theme: "dark"
         });
       }
       setFormData({
@@ -43,9 +42,9 @@ const SettingPage = () => {
         confirmPassword: ""
       })
     } catch (error) {
-      toast.error(error.response?.data || "error changing is password",{
-        theme:"dark"
-      }); 
+      toast.error(error.response?.data || "error changing is password", {
+        theme: "dark"
+      });
 
     } finally {
       setIsLoading(false);
@@ -110,7 +109,7 @@ const SettingPage = () => {
                   disabled={isLoading}
                   className="px-4 py-2 rounded-lg bg-emerald-500 text-sm font-medium text-slate-950 hover:bg-emerald-400 transition"
                 >
-                  {isLoading ? "...loading":"Update password"}
+                  {isLoading ? "...loading" : "Update password"}
                 </button>
                 <button
                   type="button"

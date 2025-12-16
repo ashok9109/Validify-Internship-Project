@@ -4,8 +4,9 @@ const authMiddleware = require("../middleware/auth.middleware");
 
 const router = express.Router();
 
-
-// ----------/me-api----------
+// ------------------------
+// fetching current user
+// -------------------------
 router.get("/me", authMiddleware, (req, res) => {
     return res.status(200).json({
         message: "user is loggedin",
@@ -13,18 +14,25 @@ router.get("/me", authMiddleware, (req, res) => {
     })
 })
 
-// -----------Resgister-api--------------
+// ----------------------
+// Resgister api
+// ----------------------
 router.post("/register", registerController);
 
-// -----------Login-api---------------
+// ------------------
+// Login api
+// ------------------
 router.post("/login", loginController);
 
-// -----------logout-api----------
+// ----------------
+// logout api
+// -----------------
 router.get("/logout", authMiddleware, logoutController);
 
-// ---------change password api-------
+// ----------------------
+// change password api
+// -----------------------
 router.post("/change-password", authMiddleware, changePasswordController);
-
 
 
 module.exports = router;

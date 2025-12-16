@@ -172,7 +172,7 @@ const UploadDataPage = () => {
                 {/* file upload */}
                 <div>
                   <label className='block text-slate-200 font-medium text-sm mb-2'>
-                    Certificate File (PDF / Image)
+                    Certificate File Image
                   </label>
                   <label className='flex flex-col items-center justify-center h-28 w-full border-2 border-dashed border-slate-600 rounded-xl cursor-pointer hover:border-emerald-400' >
                     <span className='text-slate-300' >
@@ -182,14 +182,14 @@ const UploadDataPage = () => {
                         <>
                           Click to browse or drag & drop
                           <span className='text-slate-500' >
-                            (PDF, PNG, JPG)
+                            ( PNG, JPG)
                           </span>
                         </>
                       )}
                     </span>
                     <input
                       type="file"
-                      accept='.pdf, image/'
+                      accept='image/*'
                       className='hidden'
                       onChange={(e) => setCertificateFile(e.target.files[0] || null)}
                     />

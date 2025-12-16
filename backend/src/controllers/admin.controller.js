@@ -2,8 +2,10 @@ const XLSX = require("xlsx");
 const studentModel = require("../model/student.model");
 const imageKitSendFile = require("../services/storage.service");
 
+// -----------------------------------
+// upload Excel controller
+// -------------------------------------
 
-// -----------upload Excel controller-------------
 const uploadExcelController = async (req, res) => {
     try {
         if (!req.file) {
@@ -67,7 +69,9 @@ const uploadExcelController = async (req, res) => {
 };
 
 
-// ------uplaod student controller-------------
+// -----------------------------
+// uplaod student controller
+// -----------------------------
 
 const uploadStudentCertificateController = async (req, res) => {
     try {
@@ -120,5 +124,42 @@ const uploadStudentCertificateController = async (req, res) => {
     };
 };
 
-module.exports = { uploadExcelController, uploadStudentCertificateController };
+// ------------------------------------
+// find student by certificate id
+// ------------------------------------
+
+const getStudentByCertificateId = async (req, res) => {
+    try {
+        const { certificateId } = req.params;
+
+        if (!certificateId) {
+            return res.status(400).json({
+                message: "certificate Id is required"
+            })
+        }
+
+        const student = await studentModel.findOne({ certificateId });
+
+        if (!student) {
+            return res.status(400).json({
+                message: "Invalid Certificate ID"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Certificate Verified successfully",
+            student
+        });
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Failed to verifications"
+        });
+    };
+};
+
+module.exports = { uploadExcelController, uploadStudentCertificateController, getStudentByCertificateId };
 

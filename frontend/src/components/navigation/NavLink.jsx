@@ -32,9 +32,9 @@ const NavLink = () => {
         try {
             dispatch(userLogoutApi());
             navigate("/")
-            toast.success("Logout successfully",{
-                theme:"dark",
-                transition:Bounce
+            toast.success("Logout successfully", {
+                theme: "dark",
+                transition: Bounce
             })
         } catch (error) {
             console.log("error in the logout ", error);

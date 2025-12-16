@@ -2,7 +2,9 @@ const userModel = require("../model/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-//-------Resgister Controller-----------
+//----------------------------
+// Resgister Controller
+// ---------------------------
 const registerController = async (req, res) => {
     try {
         const { fullName, mobile, email, password, username } = req.body;
@@ -58,7 +60,9 @@ const registerController = async (req, res) => {
     };
 };
 
-//---------Login Controller---------
+//---------------------------
+// Login Controller
+// --------------------------
 const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -111,7 +115,9 @@ const loginController = async (req, res) => {
     };
 };
 
-// ---------Logout-Controller--------
+// -----------------------------
+// Logout-Controller
+// -----------------------------
 const logoutController = async (req, res) => {
     try {
         const token = req.cookies?.token
@@ -137,7 +143,9 @@ const logoutController = async (req, res) => {
     };
 };
 
-// ----Change password api-----
+// --------------------------
+// Change password api
+// --------------------------
 const changePasswordController = async (req, res) => {
     try {
 

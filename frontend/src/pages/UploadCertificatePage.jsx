@@ -26,8 +26,8 @@ const UploadCertificatePage = () => {
       const formData = new FormData();
       formData.append("certificateId", certificateId);
       formData.append("file", certificateFile);
-      const response =   await uploadUserCertificateApi(formData);
-      if(response){
+      const response = await uploadUserCertificateApi(formData);
+      if (response) {
         toast.success("Your certificate is Uploaded")
       }
 

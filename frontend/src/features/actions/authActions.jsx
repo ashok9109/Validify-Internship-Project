@@ -1,7 +1,9 @@
 import { axiosinstance } from "../../config/axiosinstance"
 import { addUser, removeUser } from "../reducers/authSlice";
 
-// -------------user register api------------------
+// ------------------------
+// user register api
+// ------------------------
 export const userRegisterApi = (data) => async (dispatch) => {
 
     try {
@@ -16,7 +18,9 @@ export const userRegisterApi = (data) => async (dispatch) => {
     };
 };
 
-// -------------user login api----------------
+// ---------------------
+// user login api
+// ---------------------
 export const userLoginApi = (data) => async (dispatch) => {
     try {
 
@@ -31,7 +35,9 @@ export const userLoginApi = (data) => async (dispatch) => {
     };
 };
 
-// --------------user logout api-------------------
+// -------------------------
+// user logout api
+// -------------------------
 export const userLogoutApi = () => async (dispatch) => {
     try {
 
@@ -45,11 +51,13 @@ export const userLogoutApi = () => async (dispatch) => {
     };
 };
 
-// ------------change password api------------------
+// --------------------------
+// change password api
+// --------------------------
 export const changePasswordApi = (data) => async (dispatch) => {
     try {
         const response = await axiosinstance.post("/api/user/change-password", data);
-        if(response){
+        if (response) {
             return response.data;
         }
 

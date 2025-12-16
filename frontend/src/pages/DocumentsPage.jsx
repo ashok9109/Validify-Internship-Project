@@ -39,8 +39,8 @@ const DocumentsPage = () => {
   }
 
   return (
-    <section className="max-w-5xl mx-auto p-6 text-center text-white">
-      <h1 className="text-2xl font-bold p-6 text-emerald-500  " >My Certificates</h1>
+    <section className="min-h-screen max-w-5xl mx-auto p-6 text-center text-white">
+      <h1 className="text-xl md:text-4xl font-bold p-6 text-emerald-500 underline " >DOCUMENTS</h1>
 
       {certificates.length === 0 ? (
         <div className="text-center text-2xl" >
@@ -50,42 +50,44 @@ const DocumentsPage = () => {
         <div>
           <table className="w-full border rounded" >
             <thead>
-              <tr className="bg-gray-200 text-black" >
-                <th className="border p-3 " >#</th>
-                <th className="border p-3 " >CetificateId</th>
-                <th className="border p-3 " >Created Date</th>
-                <th className="border p-3 " >Certificates</th>
+              <tr className="bg-gray-200 text-black relative" >
+                <th className="border p-0  md:p-3 text-sm md:text-lg" >#</th>
+                <th className="border p-0  md:p-3 text-sm md:text-lg" >CetificateId</th>
+                <th className="border p-0  md:p-3 text-sm md:text-lg" >Created Date</th>
+                <th className="border p-0  md:p-3 text-sm md:text-lg" >Certificates</th>
               </tr>
             </thead>
             <tbody>
               {certificates.map((cert, index) => (
-                <tr key={cert._id} className="text-center" >
-                  <td className="border p-3" >
-                    {index + 1}
+                <tr key={cert._id} className="text-center relative" >
+                  <td className="border p-0 md:p-3" >
+                    <h1 className="text-sm md:text-lg hidden md:block " >{index + 1}</h1>
+
                   </td>
-                  <td className="flex gap-2 items-center justify-center border p-3" >
+                  <td className="flex gap-2 items-center justify-center border p-0 md:p-3 text-sm md:text-lg" >
                     {cert.certificateId}
                     <Copy
                       size={16}
-                      className="cursor-pointer hover:text-emerald-500"
+                      className="cursor-pointer hover:text-emerald-500 hidden md:block"
                       onClick={() => {
                         navigator.clipboard.writeText(cert.certificateId);
                         toast.success("Certificate ID copied")
                       }}
                     />
                   </td>
-                  <td className="border p-3" >
+                  <td className="border p-0 md:p-3 text-sm md:text-lg" >
                     {new Date(cert.createdAt).toLocaleDateString()}
                   </td>
-                  <td className="border p-3" >
+                  <td className="border p-0 md:p-3 text-sm md:text-lg" >
                     {cert.certificateUrl ? (
                       <a href={cert.certificateUrl}
-                      target="_blank"
-                      className="flex items-center justify-center text-emerald-500 hover:text-white transition"
+                        target="_blank"
+                        className="flex items-center justify-center text-emerald-500 hover:text-white hover:underline transition"
                       >
                         View
-                        <ExternalLink 
-                        size={16}
+                        <ExternalLink
+                        className="hidden md:block"
+                          size={16}
                         />
                       </a>
                     ) : (

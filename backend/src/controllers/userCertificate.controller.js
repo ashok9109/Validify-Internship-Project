@@ -1,7 +1,9 @@
 const userCertificateModel = require("../model/userCertificate.model");
 const imageKitSendFile = require("../services/storage.service");
 
-// ------upload user certificate api-------
+// ---------------------------------
+// upload user certificate api
+// ---------------------------------
 const userUploadCertificateController = async (req, res) => {
     try {
 
@@ -49,7 +51,9 @@ const userUploadCertificateController = async (req, res) => {
     };
 };
 
-// ---------user certificate api------------
+// ----------------------------
+// user certificate api
+// ----------------------------
 const getMYCertificateController = async (req, res) => {
     try {
 
@@ -75,9 +79,6 @@ const getMYCertificateController = async (req, res) => {
         });
     };
 };
-
-
-
 
 
 module.exports = { userUploadCertificateController, getMYCertificateController };

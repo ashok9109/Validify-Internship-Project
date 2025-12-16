@@ -26,7 +26,7 @@ const AppRouters = () => {
                     children: [
                         {
                             path: "",
-                            element: <HomePage/>
+                            element: <HomePage />
                         },
                         {
                             path: "my-Verifications",
