@@ -9,7 +9,6 @@ const MyVerificationsPage = () => {
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(false);
 
-
   const handleVerify = async () => {
 
     if (!certificateId.trim()) {
