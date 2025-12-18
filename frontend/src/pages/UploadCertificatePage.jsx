@@ -8,7 +8,6 @@ const UploadCertificatePage = () => {
   const [certificateFile, setCertificateFile] = useState(null);
   const [isUploadingCert, setIsUploadingCert] = useState(false);
 
-
   const handleCertificateSubmit = async (e) => {
     e.preventDefault();
     if (!certificateId.trim()) {
@@ -28,7 +27,7 @@ const UploadCertificatePage = () => {
       formData.append("file", certificateFile);
       const response = await uploadUserCertificateApi(formData);
       if (response) {
-        toast.success("Your certificate is Uploaded")
+        toast.success("Your certificate is Uploaded", { theme: "dark" })
       }
 
       setCertificateId("");

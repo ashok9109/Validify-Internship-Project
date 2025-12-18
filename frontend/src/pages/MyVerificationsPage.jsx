@@ -83,6 +83,13 @@ const MyVerificationsPage = () => {
                       alt="Certificate Image"
                       className='w-full max-h-[500px] object-contain  '
                     />
+                    <a 
+                    href={student.certificateUrl}
+                    download={`certificate_${student.certificateId}`}
+                     className="inline-block mt-4 bg-emerald-500 text-black text-sm px-2 py-1 md:px-6 md:py-2 rounded"
+                    >
+                     ⬇ Download Certificate
+                    </a>
                   </div>
                 </div>
               )}

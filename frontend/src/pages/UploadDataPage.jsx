@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { UploadExcelApi, uploadStudentCertificateApi } from '../apis/adminApis';
 import { toast } from 'react-toastify';
 
-
 const UploadDataPage = () => {
 
   const [excelFile, setExcelFile] = useState(null);
@@ -25,9 +24,8 @@ const UploadDataPage = () => {
       formData.append("file", excelFile);
       const response = await UploadExcelApi(formData);
       if (response) {
-        toast.success("Excel Data Uploaded successfully");
+        toast.success("Excel Data Uploaded successfully", { theme: "dark" });
       }
-
     } catch (error) {
       console.log(error)
       alert("error in uploading excel file")
@@ -43,12 +41,10 @@ const UploadDataPage = () => {
       alert("Please enter the your certficate id ")
       return
     }
-
     if (!certificateFile) {
       alert("Please upload the certificate")
       return
     }
-
     try {
       setIsUploadinCertificate(true);
 
@@ -57,9 +53,8 @@ const UploadDataPage = () => {
       formData.append("certificateId", certificateId);
       const response = await uploadStudentCertificateApi(formData);
       if (response) {
-        toast.success("Certificate uploaded successfully");
+        toast.success("Certificate uploaded successfully", { theme: "dark" });
       }
-
     } catch (error) {
       console.log(error);
       alert("error uploading in certificate and certificate ID")

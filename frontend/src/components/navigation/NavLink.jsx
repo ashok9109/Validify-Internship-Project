@@ -66,7 +66,7 @@ const NavLink = () => {
                 <div className="h-full w-full flex flex-col gap-6 p-7 font-bold text-xl text-gray-100 font1 " >
                     {navLink.map(({ label, icon: Icon, to }, Idx) => {
 
-                        if (role === "user" & (label === "Upload Data")) {
+                        if (role === "user" && (label === "Upload Data")) {
                             return null
                         }
                         return (

@@ -17,7 +17,7 @@ const DocumentsPage = () => {
       if (response.success) {
         setCertificates(response.certificates);
       } else {
-        toast.error("failed to fetch the certificates");
+        toast.error("failed to fetch the certificates",{theme:"dark"});
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "something went wrong")
@@ -86,7 +86,7 @@ const DocumentsPage = () => {
                       >
                         View
                         <ExternalLink
-                        className="hidden md:block"
+                          className="hidden md:block"
                           size={16}
                         />
                       </a>
