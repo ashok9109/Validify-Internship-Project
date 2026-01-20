@@ -8,7 +8,7 @@ const userCertificateRouter = require("./routes/userCertificate.routes");
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.VERCEL_URL,
     credentials: true
 }))
 
