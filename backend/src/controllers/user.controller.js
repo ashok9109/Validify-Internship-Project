@@ -120,15 +120,21 @@ const loginController = async (req, res) => {
 // -----------------------------
 const logoutController = async (req, res) => {
     try {
-        const token = req.cookies?.token
+        // const token = req.cookies?.token
 
-        if (!token) {
-            return res.status(404).json({
-                message: "Token is not found"
-            });
-        }
+        // if (!token) {
+        //     return res.status(404).json({
+        //         message: "Token is not found"
+        //     });
+        // }
 
-        res.clearCookie("token");
+        // res.clearCookie("token");
+
+        res.cookie("token", "",{
+            httpOnly:true,
+            sameSite:"none",
+            secure:true,
+        })
 
         return res.status(200).json({
             message: "Logout successfully"
