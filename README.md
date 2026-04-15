@@ -1,7 +1,7 @@
 
 ---
 
-# 🔐 **Validify — Certificate Verification System**
+# 🔐 **Validify — ( Certificate Verification System )**
 
 ```md
 # Validify – Certificate Verification System
@@ -11,7 +11,7 @@ The system allows organizations to upload student data via Excel, generate certi
 
 ---
 
-## 🚀 Features
+## 🚀 Features:-
 
 - Excel-based bulk upload of student data
 - Secure certificate generation & storage
@@ -22,7 +22,7 @@ The system allows organizations to upload student data via Excel, generate certi
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack:-
 
 **Frontend:** React.js, Tailwind CSS  
 **Backend:** Node.js, Express.js  
@@ -32,7 +32,7 @@ The system allows organizations to upload student data via Excel, generate certi
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Installation & Setup:-
 
 ```bash
 git clone https://github.com/ashok9109/Validify-Internship-Project.git

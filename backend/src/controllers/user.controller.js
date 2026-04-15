@@ -66,6 +66,7 @@ const registerController = async (req, res) => {
 const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("this the user", email,password)
 
         if (!email || !password) {
             return res.status(422).json({
